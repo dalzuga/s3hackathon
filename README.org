@@ -1,0 +1,90 @@
+* S3 Server
+  S3 is a protocol used by Amazon (AWS) and other cloud storage providers
+  Scality's S3 is an open-source implementation available on Github.
+** From the video (very basic stuff)
+  - Single instance running in a docker container
+  - Uses docker volumes for persistent storage
+  - Same code as Scality's RING S3 interface
+    - RING S3 is the cloud storage system (?) at petabyte-scale
+  - Giorgio shows how he uploaded a file on the server he is running
+    locally (demo) using cyberduck (GUI tool)
+  - Giorgio shows how he downloaded a file on the same server using
+    s3cmd (CLI tool) - first 'ls' then a 'get', whatever that means
+** Install
+   Instructions at [[http://s3.scality.com/docs/getting-started][S3 - Getting Started]]
+  - Docker-toolbox, if you don't have it
+  - S3 download via Docker Hub (use Kitematic)
+  - Standard S3 tools (Store and retrieve files)
+    - Cyberduck
+      - An FTP client GUI to interact with the S3 server
+    - S3cmd (not included in the Getting Started)
+      - terminal version of GUI
+* Rona's resources
+
+1. http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud [1]
+2. https://www.reddit.com/r/storage/comments/26qy4k/eli5_object_storage_please_educate_me/ [2]
+3. https://www.reddit.com/r/explainlikeimfive/comments/4ifybx/eli5_object_vs_block_vs_file_storage/ [3]
+4. http://www.seagate.com/tech-insights/kinetic-vision-how-seagate-new-developer-tools-meets-the-needs-of-cloud-storage-platforms-master-ti/ [4]
+
+** Takeaways
+   - 2nd link:
+     > Objects are mostly defined in the context of
+     object-oriented programming.
+   - 3rd link:
+     > The data and the data's metadata are stored separately.
+     > This allows applications to address/retrieve the data as programming objects, not as files on a disk. No LVM or filesystem needed, so admining/scaling something this huge is simplified greatly.
+   - 4th link:
+     Kind of flew right by me, it’s long and it’s got a lot of terms/acronyms whose meaning is not described.
+   - 1st link:
+     > Outside of the bucket structure (which is there to
+     provide admin and security multi-tenancy), the operation of S3 is
+     a flat structure with no equivalent of the file structure
+     hierarchy seen with NFS- and CIFS/SMB-based storage.
+     
+     In other words, there is no file hierarchy by default, everything
+     is “buckets” instead of folders, and no "sub-buckets” (as in
+     “subdirectories”). This being said, it is possible to implement
+     and enforce your own hierarchy if you code it into an object, so
+     theoretically you can have a file/folder structure built on top
+     of it, but the important thing is this is not there by default.
+
+     > S3 is accessed using web-based protocols that use standard
+     HTTP(S) and a REST-based API.
+
+No need for explanation on this one.
+
+> Amazon does not provide any technical details on how S3 is implemented, but we do have knowledge of some technical points that help us understand the way S3 operates.
+
+Stark contrast to Scality, whose implementation we will be working with, which is open-source and hosted on github (https://github.com/scality/s3)
+
+
+** Amazon's storage tier products
+  1. Standard: General S3 capacity, used as the usual end point for
+     data added to S3.
+  2. Standard (Infrequent Access): A version of S3 capacity with lower
+     levels of availability than Standard for data that doesn’t need
+     to be highly available.
+  3. Glacier: Long-term archive storage.
+
+* Resource by Asaia
+
+  Okay, the resource given by Asaia to us on Slack [[https://github.com/open-guides/og-aws#s3-basics][describes S3 further]]
+
+** Takeaways (copied from [[https://github.com/open-guides/og-aws#s3-basics][the resource]])
+  - Items, or objects, are placed into named buckets stored with names
+    which are usually called keys. The main content is the value.
+  - S3 (Simple Storage Service) is AWS’ standard cloud storage
+    service, offering [...] storage of arbitrary [...] numbers of
+    files [sic (should really be objects)] of almost any size, from 0
+    to 5 TB. (Prior to 2011 the maximum size was 5 GB; larger sizes
+    are now well supported via multipart support.)
+  - Objects are created, deleted, or updated. Large objects can be
+    streamed, but you cannot access or modify parts of a value; you
+    need to update the whole object.
+  - S3 vs Glacier, EBS, and EFS: AWS offers many storage services, and
+    several besides S3 offer file-type abstractions. Glacier is for
+    cheaper and infrequently accessed archival storage. EBS, unlike
+    S3, allows random access to file contents via a traditional
+    filesystem, but can only be attached to one EC2 instance at a
+    time. EFS is a network filesystem many instances can connect to,
+    but at higher cost.

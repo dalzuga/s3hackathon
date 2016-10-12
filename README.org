@@ -28,19 +28,30 @@
 
 ** Takeaways
    - 2nd link:
-     > Objects are mostly defined in the context of
+     #+BEGIN_QUOTE
+     Objects are mostly defined in the context of
      object-oriented programming.
+     #+END_QUOTE
    - 3rd link:
-     > The data and the data's metadata are stored separately.
-     > This allows applications to address/retrieve the data as programming objects, not as files on a disk. No LVM or filesystem needed, so admining/scaling something this huge is simplified greatly.
+     #+BEGIN_QUOTE
+     The data and the data's metadata are stored separately.
+     #+END_QUOTE
+     #+BEGIN_QUOTE
+     This allows applications to address/retrieve the data as
+     programming objects, not as files on a disk. No LVM or filesystem
+     needed, so admining/scaling something this huge is simplified
+     greatly.
+     #+END_QUOTE
    - 4th link:
      Kind of flew right by me, it’s long and it’s got a lot of terms/acronyms whose meaning is not described.
    - 1st link:
-     > Outside of the bucket structure (which is there to
+     #+BEGIN_QUOTE
+     Outside of the bucket structure (which is there to
      provide admin and security multi-tenancy), the operation of S3 is
      a flat structure with no equivalent of the file structure
      hierarchy seen with NFS- and CIFS/SMB-based storage.
-     
+     #+END_QUOTE
+
      In other words, there is no file hierarchy by default, everything
      is “buckets” instead of folders, and no "sub-buckets” (as in
      “subdirectories”). This being said, it is possible to implement
@@ -48,14 +59,18 @@
      theoretically you can have a file/folder structure built on top
      of it, but the important thing is this is not there by default.
 
-     > S3 is accessed using web-based protocols that use standard
+     #+BEGIN_QUOTE
+     S3 is accessed using web-based protocols that use standard
      HTTP(S) and a REST-based API.
+     #+END_QUOTE
 
-No need for explanation on this one.
+     No need for explanation on this one.
 
-> Amazon does not provide any technical details on how S3 is implemented, but we do have knowledge of some technical points that help us understand the way S3 operates.
+     #+BEGIN_QUOTE
+     Amazon does not provide any technical details on how S3 is implemented, but we do have knowledge of some technical points that help us understand the way S3 operates.
+     #+END_QUOTE
 
-Stark contrast to Scality, whose implementation we will be working with, which is open-source and hosted on github (https://github.com/scality/s3)
+     Stark contrast to Scality, whose implementation we will be working with, which is open-source and hosted on github (https://github.com/scality/s3)
 
 
 ** Amazon's storage tier products

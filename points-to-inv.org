@@ -16,8 +16,9 @@
      (http://www.seagate.com/solutions/partners/scality-seagate-kinetic/)
      and communicates WITH Kinetic drives to store objects. The press
      releases do not mention whether Scality's S3 server is also able
-     to use Kinetic drives for storage.
+     to interface with Kinetic drives for storage.
 
      Press releases:
+
      http://www.scality.com/about-us/press/seagate-kinetic-open-storage-platform-to-fuel-new-scality-softwarestorage-solution/
      http://www.seagate.com/solutions/partners/scality-seagate-kinetic/

@@ -4,4 +4,5 @@
    Rona and Daniel have been discussing whether S3 supports Kinetic drives
    out of the box or if this is functionality that you have to add.
 
-   stuff 
+   - According to Scality's S3 repo and Giorgio's demo video, Docker is used
+     for "persistent file storage."

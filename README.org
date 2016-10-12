@@ -9,7 +9,7 @@
     - RING S3 is the cloud storage system (?) at petabyte-scale
   - Giorgio shows how he uploaded a file on the server he is running
     locally (demo) using cyberduck (GUI tool)
-  - Giorgio shows how he downloaded a file on the same server using
+  - Giorgio shows how he downloaded this file on the same server using
     s3cmd (CLI tool) - first 'ls' then a 'get'
 ** Install
    Instructions at [[http://s3.scality.com/docs/getting-started][S3 - Getting Started]]

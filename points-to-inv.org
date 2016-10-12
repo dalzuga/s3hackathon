@@ -1,8 +1,9 @@
 * Points to Investigate
 
 ** Kinetic drives
-   Rona and Daniel have been discussing whether S3 supports Kinetic drives
-   out of the box or if this is functionality that you have to add.
+   Rona and Daniel have been discussing whether S3 supports storage on
+   Kinetic drives out of the box or if this is functionality that you
+   have to add.
 
    - According to Giorgio's demo video (https://vimeo.com/169727743),
      Docker is used for "persistent file storage." This implies that

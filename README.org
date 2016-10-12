@@ -33,6 +33,13 @@
      Objects are mostly defined in the context of
      object-oriented programming.
      #+END_QUOTE
+
+     #+BEGIN_QUOTE
+     Object storage: associate a *key* (typically an integer or a
+     string) with *data* (and optionally "*metadata*": attributes, access
+     rights, etc.)
+     #+END_QUOTE
+
    - 3rd link:
      #+BEGIN_QUOTE
      The data and the data's metadata are stored separately.
@@ -42,8 +49,6 @@
      programming objects, not as files on a disk. No LVM or filesystem
      needed, so admining/scaling something this huge is simplified
      greatly.
-     #+END_QUOTE
-     #+BEGIN_QUOTE
      #+END_QUOTE
      #+BEGIN_QUOTE
      #+END_QUOTE

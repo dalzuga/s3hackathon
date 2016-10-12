@@ -1,5 +1,6 @@
 * S3 Server
-  S3 is a protocol used by Amazon (AWS) and other cloud storage providers
+  S3 is a protocol used by Amazon (AWS) and other cloud storage providers.
+
   Scality's S3 is an open-source implementation available on Github.
 ** From the video (very basic stuff)
   - Single instance running in a docker container
@@ -9,7 +10,7 @@
   - Giorgio shows how he uploaded a file on the server he is running
     locally (demo) using cyberduck (GUI tool)
   - Giorgio shows how he downloaded a file on the same server using
-    s3cmd (CLI tool) - first 'ls' then a 'get', whatever that means
+    s3cmd (CLI tool) - first 'ls' then a 'get'
 ** Install
    Instructions at [[http://s3.scality.com/docs/getting-started][S3 - Getting Started]]
   - Docker-toolbox, if you don't have it
@@ -22,8 +23,8 @@
 * Rona's resources
 
 1. http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud [1]
-2. https://www.reddit.com/r/storage/comments/26qy4k/eli5_object_storage_please_educate_me/ [2]
-3. https://www.reddit.com/r/explainlikeimfive/comments/4ifybx/eli5_object_vs_block_vs_file_storage/ [3]
+2. https://www.reddit.com/r/explainlikeimfive/comments/4ifybx/eli5_object_vs_block_vs_file_storage/ [3]
+3. https://www.reddit.com/r/storage/comments/26qy4k/eli5_object_storage_please_educate_me/ [2]
 4. http://www.seagate.com/tech-insights/kinetic-vision-how-seagate-new-developer-tools-meets-the-needs-of-cloud-storage-platforms-master-ti/ [4]
 
 ** Takeaways
@@ -41,6 +42,10 @@
      programming objects, not as files on a disk. No LVM or filesystem
      needed, so admining/scaling something this huge is simplified
      greatly.
+     #+END_QUOTE
+     #+BEGIN_QUOTE
+     #+END_QUOTE
+     #+BEGIN_QUOTE
      #+END_QUOTE
    - 4th link:
      Kind of flew right by me, it’s long and it’s got a lot of terms/acronyms whose meaning is not described.

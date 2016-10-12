@@ -4,5 +4,20 @@
    Rona and Daniel have been discussing whether S3 supports Kinetic drives
    out of the box or if this is functionality that you have to add.
 
-   - According to Giorgio's demo video (https://vimeo.com/169727743), Docker is used
-     for "persistent file storage." This implies that by default, the data stores "localMetadata" and "localData" (see https://github.com/scality/s3) are Docker volumes.
+   - According to Giorgio's demo video (https://vimeo.com/169727743),
+     Docker is used for "persistent file storage." This implies that
+     by default, the data stores "localMetadata" and "localData" (see
+     https://github.com/scality/s3) are Docker volumes.
+
+   - According to press releases by Scality and Seagate, the Ring has
+     built-in support for Kinetic drives.
+
+   Do Kinetic drives count as standard x86 drives, or their own branch 
+   of physical hard drives? We have this question because the Seagate
+   press release describes Scality's RING as "running on industry
+   standard x86 servers."
+   http://www.seagate.com/solutions/partners/scality-seagate-kinetic/
+
+   - Seagate's description of Kinetic drives doesn't seem to qualify
+     as "standard."
+     http://www.seagate.com/tech-insights/kinetic-vision-how-seagate-new-developer-tools-meets-the-needs-of-cloud-storage-platforms-master-ti/

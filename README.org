@@ -5,16 +5,19 @@
 
   S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
 ** From the demo video ([[https://vimeo.com/169727743][link to Vimeo demo video]])
-   This is a very basic introduction on how to run Scality's S3 Server
-   implementation using a GUI.
-  - Single instance running in a docker container
-  - Uses docker volumes for persistent storage
-  - Same code as Scality's RING S3 interface
-    - RING S3 is the cloud storage system (?) at petabyte-scale
-  - Giorgio shows how he uploaded a file on the server he is running
-    locally (demo) using cyberduck (GUI tool)
-  - Giorgio shows how he downloaded this file on the same server using
-    s3cmd (CLI tool) - first 'ls' then a 'get'
+   This is video is a very basic introduction on how to run Scality's
+   S3 Server implementation using a GUI on Mac OS. Below is a summary
+   of the video.
+   - Slides
+     - This is a single instance running in a docker container
+     - Uses docker volumes for persistent storage
+     - Same code as Scality's RING S3 interface
+       - RING S3 is the cloud storage system at petabyte-scale
+   - Interaction with Scality's S3 server
+     - Giorgio shows how he uploaded a file to the server he is
+       running locally (demo) using cyberduck (GUI tool)
+     - Giorgio shows how he downloaded this file on the same server using
+       s3cmd (CLI tool) - first 'ls' then a 'get'
 ** Install
    Instructions at [[http://s3.scality.com/docs/getting-started][S3 - Getting Started]]
   - Docker-toolbox, if you don't have it

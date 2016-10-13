@@ -5,7 +5,7 @@
 
   S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
 ** From the demo video ([[https://vimeo.com/169727743][link to video]])
-   This is video is a very basic introduction on how to run Scality's
+   This video is a very basic introduction on how to run Scality's
    S3 Server implementation using a GUI on Mac OS. Below is a summary
    of the video.
    - Slides

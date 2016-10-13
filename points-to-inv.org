@@ -12,7 +12,7 @@
 
    - According to press releases by Scality and Seagate, the Ring has
      built-in support for Kinetic drives. Presumably Scality's Ring
-     runs ON "standard x86 drives"
+     runs ON "standard x86 servers"
      (http://www.seagate.com/solutions/partners/scality-seagate-kinetic/)
      and communicates WITH Kinetic drives to store objects. The press
      releases do not mention whether Scality's S3 server is also able

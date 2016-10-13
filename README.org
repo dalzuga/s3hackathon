@@ -26,7 +26,7 @@
       - terminal version of GUI
 * Rona's resources
 
-1. http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud
+1. [[https://web.archive.org/web/20160524135200/http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud][http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud]]
 2. https://www.reddit.com/r/explainlikeimfive/comments/4ifybx/eli5_object_vs_block_vs_file_storage/
 3. https://www.reddit.com/r/storage/comments/26qy4k/eli5_object_storage_please_educate_me/
 4. http://www.seagate.com/tech-insights/kinetic-vision-how-seagate-new-developer-tools-meets-the-needs-of-cloud-storage-platforms-master-ti/

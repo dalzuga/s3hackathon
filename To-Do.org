@@ -1,0 +1,6 @@
+* TODO Understand how the S3 Server communicates with drives
+  - [ ] Prompt the user for storage option
+    1. Docker volumes
+    2. Kinetic drives
+  - [ ] Code the connection to a Kinetic API implementation
+    - ensure we didn't break the Docker option

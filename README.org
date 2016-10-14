@@ -113,10 +113,21 @@
     time. EFS is a network filesystem many instances can connect to,
     but at higher cost.
 
-* Amazon's storage tier products
+** Amazon's storage tier products
   1. Standard: General S3 capacity, used as the usual end point for
      data added to S3.
   2. Standard (Infrequent Access): A version of S3 capacity with lower
      levels of availability than Standard for data that doesn’t need
      to be highly available.
   3. Glacier: Long-term archive storage.
+
+** Points to Investigate by Rona
+   - Link to file: [[file:points-to-inv.org][Rona's Points to Investigate]]
+* Day 2
+** Links from Slack
+   - [[https://developers.seagate.com/display/KV/Simple%2BObject%2BStorage][Rona's Simple Object Storage]]
+   - [[https://www.openkinetic.org/technology/kinetic-api][Daniel's Kinetic API]]
+* Day 3
+** Links from Slack
+   - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][looks like the scality team updated the hackathon page and added
+     more info bout kinetic]]

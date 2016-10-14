@@ -131,3 +131,7 @@
 ** Links from Slack
    - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][looks like the scality team updated the hackathon page and added
      more info bout kinetic]]
+   - [
+   https://github.com/Kinetic/kinetic-java
+   CLICK ME
+   ]

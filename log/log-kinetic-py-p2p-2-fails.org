@@ -1,0 +1,33 @@
+* This is the log for kinetic-py with the java-simulator
+
+#+BEGIN_EXAMPLE
+
+daniel@ubuntu:~/workspace/kinetic-py$ sudo python test
+[sudo] password for daniel: 
+....................................................................................EE
+======================================================================
+ERROR: test_p2p_push (test.test_p2p.P2PTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/daniel/workspace/kinetic-py/test/test_p2p.py", line 29, in test_p2p_push
+    source, target = self.client_map.values()
+AttributeError: 'P2PTestCase' object has no attribute 'client_map'
+
+======================================================================
+ERROR: test_p2p_push (test.test_p2p.P2PTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/daniel/workspace/kinetic-py/test/base.py", line 266, in tearDown
+    shutil.rmtree(self.test_dir)
+  File "/usr/lib/python2.7/shutil.py", line 239, in rmtree
+    onerror(os.listdir, path, sys.exc_info())
+  File "/usr/lib/python2.7/shutil.py", line 237, in rmtree
+    names = os.listdir(path)
+OSError: [Errno 2] No such file or directory: '/tmp/tmpK5KvSR'
+
+----------------------------------------------------------------------
+Ran 85 tests in 9.559s
+
+FAILED (errors=2)
+
+#+END_EXAMPLE

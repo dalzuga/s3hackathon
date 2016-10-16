@@ -166,3 +166,11 @@
    - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][S3 Hackathon Page Update - more info about Kinetic]]
      - Rona discovered this one, and Electra later mentioned this one to us.
    - [[https://github.com/Kinetic/kinetic-java][Kinetic Java Simulator Repo]] - added by Josquin
+* Day 4
+  The python Kinetic client for fails a few tests related to P2P using
+  the Java simulator's most recent version at the time of this
+  writing.
+  
+  Here is the Python client log after running =python test=
+  command ([[file:log/log-kinetic-py-p2p-2-fails.org][link]])
+

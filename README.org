@@ -3,7 +3,40 @@
 
   Scality's S3 is an open-source implementation available on Github (https://github.com/scality/s3).
 
-  S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
+* Prependix (relevant links)
+
+  - S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
+
+** From the Kinetic repo (https://github.com/Kinetic):
+  - https://github.com/Kinetic/kinetic-java - contains Java simulator and several APIs
+  - https://github.com/Kinetic/kinetic-py - Kinetic Python Library
+  - https://github.com/Kinetic/kinetic-demo1 - Demo program
+    - Written in Java
+    - This program will discover drives and put up a system performance meter and a strip chart for each discovered device.
+
+** From the Seagate repo (https://github.com/seagate):
+  - https://github.com/Seagate/kinetic-java-tools
+    - Written in Java.
+    - Kinetic Java Tools are used to help the deployment and management of Kinetic drives.
+  - https://github.com/Seagate/kinetic-py-tools
+    - Written in Python.
+    - This project contains tools designed to help with deployment and management of Kinetic drives.
+  - https://github.com/Seagate/kinetic-pool-py
+    - A python library for managing connections against Kinetic devices.
+  - https://github.com/Seagate/kinetic-py-examples
+    - This project contains code examples using the Kinetic Python library.
+
+** C client implementations:
+  - https://github.com/Kinetic/kinetic-c
+    - contains code for producing Kinetic C clients for interacting
+      with Kinetic storage object-based storage.
+    - The library uses the cross-platform Seagate Kinetic protocol for
+      standardizing interaces between the Java simulator and Kinetic
+      Device storage clusters.
+
+
+* Day 1
+
 ** From the demo video ([[https://vimeo.com/169727743][link to video]])
    This video is a very basic introduction on how to run Scality's
    S3 Server implementation using a GUI on Mac OS. Below is a summary
@@ -27,7 +60,8 @@
       - An FTP client GUI to interact with the S3 server
     - S3cmd (not included in the Getting Started)
       - terminal version of GUI
-* Day 1
+
+
 ** Rona's resources
 
 1. [[https://web.archive.org/web/20160524135200/http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud][http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud]]
@@ -129,6 +163,6 @@
    - [[https://www.openkinetic.org/technology/kinetic-api][Daniel's Kinetic API]]
 * Day 3
 ** Links from Slack
-   - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][looks like the scality team updated the hackathon page and added
-     more info bout kinetic]]
-   - [[https://github.com/Kinetic/kinetic-java] - Kinetic Java Simulator Repo]
+   - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][S3 Hackathon Page Update - more info about Kinetic]]
+     - Rona discovered this one, and Electra later mentioned this one to us.
+   - [[https://github.com/Kinetic/kinetic-java][Kinetic Java Simulator Repo]] - added by Josquin

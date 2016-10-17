@@ -181,4 +181,7 @@
    2. Seagate's Kinetic Library
       - I'm currently finding the source code in this file useful to
         my understanding - [[https://github.com/Seagate/kinetic-java-tools/blob/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src/main/java/com/seagate/kinetic/tools/management/cli/KineticToolCLI.java][link]]. This links to the first commit of the
-        file KineticToolCLI.java in the [[https://github.com/Seagate/kinetic-java-tools][kinetic-java-tools]] repository.
+        file KineticToolCLI.java in the [[https://github.com/Seagate/kinetic-java-tools][kinetic-java-tools]]
+        repository. Specifically, the source code for the Kinetic
+        tools can all be found in this [[https://github.com/Seagate/kinetic-java-tools/tree/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src][directory]] (this link sends you to the very
+        first commit version of this directory.)

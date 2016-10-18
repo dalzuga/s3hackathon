@@ -7,14 +7,14 @@
 
   - S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
 
-** From the Kinetic repo (https://github.com/Kinetic):
+** From the Kinetic Github Page (https://github.com/Kinetic):
   - https://github.com/Kinetic/kinetic-java - contains Java simulator and several APIs
   - https://github.com/Kinetic/kinetic-py - Kinetic Python Library
   - https://github.com/Kinetic/kinetic-demo1 - Demo program
     - Written in Java
     - This program will discover drives and put up a system performance meter and a strip chart for each discovered device.
 
-** From the Seagate repo (https://github.com/seagate):
+** From the Seagate Github Page (https://github.com/seagate):
   - https://github.com/Seagate/kinetic-java-tools
     - Written in Java.
     - Kinetic Java Tools are used to help the deployment and management of Kinetic drives.
@@ -180,7 +180,7 @@
       - nothing here yet
    2. Seagate's Kinetic Library
       - I'm currently finding the source code in this file useful to
-        my understanding - [[https://github.com/Seagate/kinetic-java-tools/blob/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src/main/java/com/seagate/kinetic/tools/management/cli/KineticToolCLI.java][link]]. This links to the first commit of the
+        my understanding - [[https://github.com/Seagate/kinetic-java-tools/blob/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src/main/java/com/seagate/kinetic/tools/management/cli/KineticToolCLI.java][link to file]]. This links to the first commit of the
         file KineticToolCLI.java in the [[https://github.com/Seagate/kinetic-java-tools][kinetic-java-tools]]
         repository. Specifically, the source code for the Kinetic
         tools can all be found in this [[https://github.com/Seagate/kinetic-java-tools/tree/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src][directory]] (this link sends you to the very

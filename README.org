@@ -7,32 +7,38 @@
 
   - S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
 
+** From the Scality Github Page (https://github.com/scality)
+   - https://github.com/scality/kineticlib - contains KineticLib
+     mentioned by Electra
+     
 ** From the Kinetic Github Page (https://github.com/Kinetic):
-  - https://github.com/Kinetic/kinetic-java - contains Java simulator and several APIs
-  - https://github.com/Kinetic/kinetic-py - Kinetic Python Library
-  - https://github.com/Kinetic/kinetic-demo1 - Demo program
-    - Written in Java
-    - This program will discover drives and put up a system performance meter and a strip chart for each discovered device.
+   - https://github.com/Kinetic/kinetic-java - contains Java simulator
+     and several APIs
+   - https://github.com/Kinetic/kinetic-py - Kinetic Python Library
+   - https://github.com/Kinetic/kinetic-demo1 - Demo program
+     - Written in Java
+     - This program will discover drives and put up a system
+       performance meter and a strip chart for each discovered device.
 
 ** From the Seagate Github Page (https://github.com/seagate):
-  - https://github.com/Seagate/kinetic-java-tools
-    - Written in Java.
-    - Kinetic Java Tools are used to help the deployment and management of Kinetic drives.
-  - https://github.com/Seagate/kinetic-py-tools
-    - Written in Python.
-    - This project contains tools designed to help with deployment and management of Kinetic drives.
-  - https://github.com/Seagate/kinetic-pool-py
-    - A python library for managing connections against Kinetic devices.
-  - https://github.com/Seagate/kinetic-py-examples
-    - This project contains code examples using the Kinetic Python library.
+   - https://github.com/Seagate/kinetic-java-tools
+     - Written in Java.
+     - Kinetic Java Tools are used to help the deployment and management of Kinetic drives.
+   - https://github.com/Seagate/kinetic-py-tools
+     - Written in Python.
+     - This project contains tools designed to help with deployment and management of Kinetic drives.
+   - https://github.com/Seagate/kinetic-pool-py
+     - A python library for managing connections against Kinetic devices.
+   - https://github.com/Seagate/kinetic-py-examples
+     - This project contains code examples using the Kinetic Python library.
 
 ** C client implementations:
-  - https://github.com/Kinetic/kinetic-c
-    - contains code for producing Kinetic C clients for interacting
-      with Kinetic storage object-based storage.
-    - The library uses the cross-platform Seagate Kinetic protocol for
-      standardizing interaces between the Java simulator and Kinetic
-      Device storage clusters.
+   - https://github.com/Kinetic/kinetic-c
+     - contains code for producing Kinetic C clients for interacting
+       with Kinetic storage object-based storage.
+     - The library uses the cross-platform Seagate Kinetic protocol
+       for standardizing interaces between the Java simulator and
+       Kinetic Device storage clusters.
 
 
 * Day 1

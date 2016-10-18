@@ -12,12 +12,15 @@ let client;
 let implName;
 
 if (config.backends.data === 'mem') {
+    // If back-end is RAM:
     client = inMemory;
     implName = 'mem';
 } else if (config.backends.data === 'file') {
+    // If back-end is Docker Volume:
     client = file;
-    implName = 'file';
+    implName = 'file';    
 } else if (config.backends.data === 'scality') {
+    // If back-end is Scality RING:
     client = new Sproxy({
         bootstrap: config.sproxyd.bootstrap,
         log: config.log,

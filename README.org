@@ -32,6 +32,9 @@
    - https://github.com/Seagate/kinetic-py-examples
      - This project contains code examples using the Kinetic Python library.
 
+** Important links from the Seagate developer page
+   - https://developers.seagate.com/display/KV/Kinetic-Protocol+Architecture -
+     contains information on the PDU (Kinetic Protocol Data Unit)
 ** C client implementations:
    - https://github.com/Kinetic/kinetic-c
      - contains code for producing Kinetic C clients for interacting
@@ -39,7 +42,6 @@
      - The library uses the cross-platform Seagate Kinetic protocol
        for standardizing interaces between the Java simulator and
        Kinetic Device storage clusters.
-
 
 * Day 1
 

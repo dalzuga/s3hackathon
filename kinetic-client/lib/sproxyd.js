@@ -1,17 +1,20 @@
 'use strict'; // eslint-disable-line strict
 
-const assert = require('assert');
-const http = require('http');
-
-const Logger = require('werelogs').Logger;
-
-const shuffle = require('./shuffle');
-const keygen = require('./keygen');
+// const assert = require('assert');
+// const http = require('http');
+//
+// const Logger = require('werelogs').Logger;
+//
+// const shuffle = require('./shuffle');
+// const keygen = require('./keygen');
 
 /*
  * This handles the request, and the corresponding response default behaviour
  */
 function _createRequest(req, log, callback) {
+    // return a request constant
+
+    /*
     const request = http.request(req, response => {
         response.once('readable', () => {
             // Get range returns a 206
@@ -30,6 +33,7 @@ function _createRequest(req, log, callback) {
     // disable nagle algorithm
     request.setNoDelay(true);
     return request;
+    */
 }
 
 /*
@@ -55,6 +59,10 @@ class SproxydClient {
      *                                   is enabled, default to arc (cos 0x70)
      */
     constructor(opts) {
+        // get array of hosts from "bootstrap" & select current host
+        // -- but for now we only want to communicate with one IP drive
+
+        /*
         const options = opts || {};
         this.bootstrap = opts.bootstrap === undefined ?
             [['localhost', '81']] : _parseBootstrapList(opts.bootstrap);
@@ -67,9 +75,16 @@ class SproxydClient {
             this.path = '/proxy/arc/';
         }
         this.setCurrentBootstrap(this.bootstrap[0]);
-        this.httpAgent = new http.Agent({ keepAlive: true });
+        */
 
+        // create an http agent, .. which does what for us?
+        /*
+        this.httpAgent = new http.Agent({ keepAlive: true });
+        */
+
+        // set up logging, calling class method
         this.setupLogging(options.log);
+
     }
 
     setupLogging(config) {
@@ -89,23 +104,23 @@ class SproxydClient {
             this.logging.newRequestLogger();
     }
 
-    _shiftCurrentBootstrapToEnd(log) {
-        const previousEntry = this.bootstrap.shift();
-        this.bootstrap.push(previousEntry);
-        const newEntry = this.bootstrap[0];
-        this.setCurrentBootstrap(newEntry);
-
-        log.debug(`bootstrap head moved from ${previousEntry} to ${newEntry}`);
-        return this;
-    }
-
-    setCurrentBootstrap(host) {
-        this.current = host;
-        return this;
-    }
-
-    getCurrentBootstrap() {
-        return this.current;
+    // _shiftCurrentBootstrapToEnd(log) {
+    //     const previousEntry = this.bootstrap.shift();
+    //     this.bootstrap.push(previousEntry);
+    //     const newEntry = this.bootstrap[0];
+    //     this.setCurrentBootstrap(newEntry);
+    //
+    //     log.debug(`bootstrap head moved from ${previousEntry} to ${newEntry}`);
+    //     return this;
+    // }
+    //
+    // setCurrentBootstrap(host) {
+    //     this.current = host;
+    //     return this;
+    // }
+    //
+    // getCurrentBootstrap() {
+    //     return this.current;
     }
 
     /*
@@ -197,105 +212,107 @@ class SproxydClient {
         }
     }
 
-    /**
-     * This sends a PUT request to sproxyd.
-     * @param {http.IncomingMessage} stream - Request with the data to send
-     * @param {string} stream.contentHash - hash of the data to send
-     * @param {integer} size - size
-     * @param {Object} params - parameters for key generation
-     * @param {string} params.bucketName - name of the object's bucket
-     * @param {string} params.owner - owner of the object
-     * @param {string} params.namespace - namespace of the S3 request
-     * @param {string} reqUids - The serialized request id
-     * @param {SproxydClient~putCallback} callback - callback
-     * @param {string} keyScheme - sproxyd key for put the metadata
-     * @returns {undefined}
-     */
-    put(stream, size, params, reqUids, callback, keyScheme) {
-        const log = this.createLogger(reqUids);
-        this._failover('PUT', stream, size, keyScheme, 0, log, (err, key) => {
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, key);
-        }, params);
-    }
-
-    /**
-     * This sends a PUT request to sproxyd without data.
-     * @param {String} keyScheme - sproxyd key for put the metadata
-     * @param {String}  metadata - metadata to put in the object
-     * @param {String} reqUids - The serialized request id
-     * @param {SproxydClient~putCallback} callback - callback
-     * @returns {undefined}
-     */
-    putEmptyObject(keyScheme, metadata, reqUids, callback) {
-        const log = this.createLogger(reqUids);
-        const params = { headers: {} };
-        params.headers['x-scal-usermd'] = metadata;
-        this._failover('PUT', null, 0, keyScheme, 0, log, (err, key) => {
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, key);
-        }, params);
-    }
-
-    /**
-     * This sends a GET request to sproxyd.
-     * @param {String} key - The key associated to the value
-     * @param { Number [] | Undefined} range - range (if any) with
-     *                                         first element the start
-     * and the second element the end
-     * @param {String} reqUids - The serialized request id
-     * @param {SproxydClient~getCallback} callback - callback
-     * @returns {undefined}
-     */
-    get(key, range, reqUids, callback) {
-        assert.strictEqual(typeof key, 'string');
-        assert.strictEqual(key.length, 40);
-        const log = this.createLogger(reqUids);
-        const params = { range };
-        this._failover('GET', null, 0, key, 0, log, callback, params);
-    }
-
-    /**
-     * This sends a HEAD request to sproxyd.
-     * @param {String} key - The key to get from datastore
-     * @param {String} reqUids - The serialized request id
-     * @param {SproxydClient~getCallback} callback - callback
-     * @returns {undefined}
-     */
-    getHEAD(key, reqUids, callback) {
-        assert.strictEqual(typeof key, 'string');
-        assert.strictEqual(key.length, 40);
-        const log = this.createLogger(reqUids);
-        this._failover('HEAD', null, 0, key, 0, log, (err, res) => {
-            if (err) {
-                return callback(err);
-            }
-            if (res.headers['x-scal-usermd']) {
-                return callback(null, res.headers['x-scal-usermd']);
-            }
-            return callback();
-        });
-    }
-
-
-    /**
-     * This sends a DELETE request to sproxyd.
-     * @param {String} key - The key associated to the values
-     * @param {String} reqUids - The serialized request id
-     * @param {SproxydClient~deleteCallback} callback - callback
-     * @returns {undefined}
-     */
-    delete(key, reqUids, callback) {
-        assert.strictEqual(typeof key, 'string');
-        assert.strictEqual(key.length, 40);
-        const log = this.createLogger(reqUids);
-        this._failover('DELETE', null, 0, key, 0, log, callback);
-    }
-}
+// Below: client methods to send requests to client    
+//
+//     /**
+//      * This sends a PUT request to sproxyd.
+//      * @param {http.IncomingMessage} stream - Request with the data to send
+//      * @param {string} stream.contentHash - hash of the data to send
+//      * @param {integer} size - size
+//      * @param {Object} params - parameters for key generation
+//      * @param {string} params.bucketName - name of the object's bucket
+//      * @param {string} params.owner - owner of the object
+//      * @param {string} params.namespace - namespace of the S3 request
+//      * @param {string} reqUids - The serialized request id
+//      * @param {SproxydClient~putCallback} callback - callback
+//      * @param {string} keyScheme - sproxyd key for put the metadata
+//      * @returns {undefined}
+//      */
+//     put(stream, size, params, reqUids, callback, keyScheme) {
+//         const log = this.createLogger(reqUids);
+//         this._failover('PUT', stream, size, keyScheme, 0, log, (err, key) => {
+//             if (err) {
+//                 return callback(err);
+//             }
+//             return callback(null, key);
+//         }, params);
+//     }
+//
+//     /**
+//      * This sends a PUT request to sproxyd without data.
+//      * @param {String} keyScheme - sproxyd key for put the metadata
+//      * @param {String}  metadata - metadata to put in the object
+//      * @param {String} reqUids - The serialized request id
+//      * @param {SproxydClient~putCallback} callback - callback
+//      * @returns {undefined}
+//      */
+//     putEmptyObject(keyScheme, metadata, reqUids, callback) {
+//         const log = this.createLogger(reqUids);
+//         const params = { headers: {} };
+//         params.headers['x-scal-usermd'] = metadata;
+//         this._failover('PUT', null, 0, keyScheme, 0, log, (err, key) => {
+//             if (err) {
+//                 return callback(err);
+//             }
+//             return callback(null, key);
+//         }, params);
+//     }
+//
+//     /**
+//      * This sends a GET request to sproxyd.
+//      * @param {String} key - The key associated to the value
+//      * @param { Number [] | Undefined} range - range (if any) with
+//      *                                         first element the start
+//      * and the second element the end
+//      * @param {String} reqUids - The serialized request id
+//      * @param {SproxydClient~getCallback} callback - callback
+//      * @returns {undefined}
+//      */
+//     get(key, range, reqUids, callback) {
+//         assert.strictEqual(typeof key, 'string');
+//         assert.strictEqual(key.length, 40);
+//         const log = this.createLogger(reqUids);
+//         const params = { range };
+//         this._failover('GET', null, 0, key, 0, log, callback, params);
+//     }
+//
+//     /**
+//      * This sends a HEAD request to sproxyd.
+//      * @param {String} key - The key to get from datastore
+//      * @param {String} reqUids - The serialized request id
+//      * @param {SproxydClient~getCallback} callback - callback
+//      * @returns {undefined}
+//      */
+//     getHEAD(key, reqUids, callback) {
+//         assert.strictEqual(typeof key, 'string');
+//         assert.strictEqual(key.length, 40);
+//         const log = this.createLogger(reqUids);
+//         this._failover('HEAD', null, 0, key, 0, log, (err, res) => {
+//             if (err) {
+//                 return callback(err);
+//             }
+//             if (res.headers['x-scal-usermd']) {
+//                 return callback(null, res.headers['x-scal-usermd']);
+//             }
+//             return callback();
+//         });
+//     }
+//
+//
+//     /**
+//      * This sends a DELETE request to sproxyd.
+//      * @param {String} key - The key associated to the values
+//      * @param {String} reqUids - The serialized request id
+//      * @param {SproxydClient~deleteCallback} callback - callback
+//      * @returns {undefined}
+//      */
+//     delete(key, reqUids, callback) {
+//         assert.strictEqual(typeof key, 'string');
+//         assert.strictEqual(key.length, 40);
+//         const log = this.createLogger(reqUids);
+//         this._failover('DELETE', null, 0, key, 0, log, callback);
+//     }
+// }
 
 /**
  * @callback SproxydClient~putCallback

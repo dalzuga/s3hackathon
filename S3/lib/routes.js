@@ -1,3 +1,16 @@
+/*
+This file defines the function routes, called by server.js.
+routes takes in the req object (object representing request received by
+a S3Server daemon/http server), tries to normalize it (make sense of its
+properties), and runs checkUnsuportedRoutes.
+
+checkUnsuportedRoutes tries to map the method specified in the request from
+GET, PUT, POST, DELETE, or HEAD to routeGET, routePUT, routePOST, routeDELETE,
+or routeHEAD, respectively. If this mapping fails (return is false), an error
+XML is printed. If it succeeds (return is true), the appropriate route to
+execute the method is called.
+*/
+
 import { errors } from 'arsenal';
 import { UtapiClient } from 'utapi';
 

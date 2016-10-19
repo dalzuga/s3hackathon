@@ -7,7 +7,7 @@ utilities.
 
 The instructions vary per storage backend, as a different client is assigned
 per backend, and then its .put, .get, and .delete methods are called within
-each data property.
+the respective data property.
 */
 
 import async from 'async';

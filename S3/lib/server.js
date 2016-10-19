@@ -8,7 +8,10 @@ _config.
 Default compares the number of current workers to the value of
 clusters. If the number is less than clusters, default forks new
 workers until the value of clusters is reached. Each worker calls the
-S3Server constructor to create a new S3Server daemon.
+S3Server constructor to create a new S3Server daemon. The daemon is an
+http server which receives and responds to any requests directed to
+the appropriate IP and port with the method routes defined in
+routes.js.
 
 Default is called in index.js.
 */

@@ -1,3 +1,18 @@
+/*
+This file defines the S3Server class and the default function.
+
+If the storage backend has been set to mem, the var clusters is set to
+a value of 1. Otherwise, clusters remains the value defined in
+_config.
+
+Default compares the number of current workers to the value of
+clusters. If the number is less than clusters, default forks new
+workers until the value of clusters is reached. Each worker calls the
+S3Server constructor to create a new S3Server daemon.
+
+Default is called in index.js.
+*/
+
 import http from 'http';
 import https from 'https';
 import cluster from 'cluster';

@@ -1,3 +1,11 @@
+/*
+This script is run when running "npm init" and "npm start."  However,
+it is not run by "npm run mem_backend."  Initializes a collection of
+constants, checks to see if storage backend is type "file", and if so,
+initializes file backend (3511 subdirectories). (May also do a few
+other things).
+*/
+
 'use strict'; // eslint-disable-line strict
 require('babel-core/register');
 

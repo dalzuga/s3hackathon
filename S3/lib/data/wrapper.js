@@ -1,3 +1,15 @@
+/*
+The data variable in wrapper.js defines what to execute for a few functions and
+utilities in the internal Scality api, e.g. bucketPut, objectPut,
+batchDelete. These instructions are contained in the properties data.put, .get,
+.delete, and .batchDelete, which are called within their respective functions/
+utilities.
+
+The instructions vary per storage backend, as a different client is assigned
+per backend, and then its .put, .get, and .delete methods are called within
+each data property.
+*/
+
 import async from 'async';
 import { errors } from 'arsenal';
 import Sproxy from 'sproxydclient';
@@ -18,7 +30,7 @@ if (config.backends.data === 'mem') {
 } else if (config.backends.data === 'file') {
     // If back-end is Docker Volume:
     client = file;
-    implName = 'file';    
+    implName = 'file';
 } else if (config.backends.data === 'scality') {
     // If back-end is Scality RING:
     client = new Sproxy({

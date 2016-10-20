@@ -3,6 +3,7 @@
   kinetic backend. Leave blank for now - if we need to initialize any
   values or copy code from the original init.js, we can add to it
   later. Maybe leave a console log so we can see when it is being run.
+
 - Add "kinetic_backend" to scripts in package.json
   * First try
     "kinetic_backend": "S3BACKEND=testvalue node testscript.js"
@@ -10,4 +11,6 @@
     process.env.S3BACKEND
 
   * If above works, use
-    "kinetic_backend": "S3BACKEND=kinetic node init.js && index.js
+    "kinetic_backend": "S3BACKEND=kinetic node kinetic-init.js && index.js
+
+

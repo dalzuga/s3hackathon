@@ -3,9 +3,13 @@
 
   Scality's S3 is an open-source implementation available on Github (https://github.com/scality/s3).
 
-* Prependix (relevant links)
+  Here is a link to the S3 hackathon [[https://s3.scality.com/page/sf-hackathon][web flier]].
 
-  - S3 hackathon [[https://s3.scality.com/page/sf-hackathon][flier]].
+* Source-code Map
+
+  [[/images/S3-Diagram.png]]
+
+* Prependix (relevant links)
 
 ** From the Scality Github Page (https://github.com/scality)
    - https://github.com/scality/kineticlib - contains KineticLib

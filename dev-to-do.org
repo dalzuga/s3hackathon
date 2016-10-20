@@ -13,4 +13,20 @@
   * If above works, use
     "kinetic_backend": "S3BACKEND=kinetic node kinetic-init.js && index.js
 
+- Add code to handle auth for kinetic option in lib/Config.js(?)
 
+- Add 'kinetic' to const validBackends in lib/Config.js
+
+- See if var clusters should be set to a custom value for
+  kinetic backend in lib/server.js (or if default defined in
+  lib/Config.js is fine).
+
+- Add an if conditional (configs.backends.data === 'kinetic') for
+  setting of client in lib/data/wrapper.js.
+  
+  * Set client first to file and see if it behaves as expected.
+  * If it works, go ahead and create kinetic/backend.js, import, and
+    start developing on client for kinetic backend.
+
+- Add an if conditional (configs.backends.data == 'kinetic') for
+  setting of client in lib/metadata/wrapper.js.

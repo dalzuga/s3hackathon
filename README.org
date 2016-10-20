@@ -5,6 +5,10 @@
 
   Here is a link to the S3 hackathon [[https://s3.scality.com/page/sf-hackathon][web flier]].
 
+* Source-code Map
+
+  [[/images/S3-Diagram.png]]
+
 * Prependix (relevant links)
 
 ** From the Scality Github Page (https://github.com/scality)

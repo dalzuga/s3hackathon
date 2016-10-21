@@ -63,6 +63,7 @@
     "init": "node init.js",
     "lint": "eslint $(git ls-files '*.js')",
     "lint_md": "mdlint $(git ls-files '*.md')",
+    "kin_backend": "S3BACKEND=kin node test-script.js",
     "mem_backend": "S3BACKEND=mem node index.js",
     "perf": "mocha --compilers js:babel-core/register tests/performance/s3standard.js",
     "start": "node init.js && node index.js",

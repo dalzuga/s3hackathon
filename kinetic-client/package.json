@@ -1,0 +1,17 @@
+
+
+{
+  "name": "kinetic-client",
+  "version": "0.0.0",
+  "description": "client between s3 server and kinetic ip drive",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "keywords": [],
+  "author": "",
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "Apache-2.0",
+  "bugs": {},
+  "homepage": ""
+}

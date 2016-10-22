@@ -1,0 +1,192 @@
+* Source-code Map
+
+  [[/images/S3-Diagram.png]]
+
+* Prependix (relevant links)
+
+** From the Scality Github Page (https://github.com/scality)
+   - https://github.com/scality/kineticlib - contains KineticLib
+     mentioned by Electra
+     
+** From the Kinetic Github Page (https://github.com/Kinetic):
+   - https://github.com/Kinetic/kinetic-java - contains Java simulator
+     and several APIs
+   - https://github.com/Kinetic/kinetic-py - Kinetic Python Library
+   - https://github.com/Kinetic/kinetic-demo1 - Demo program
+     - Written in Java
+     - This program will discover drives and put up a system
+       performance meter and a strip chart for each discovered device.
+
+** From the Seagate Github Page (https://github.com/seagate):
+   - https://github.com/Seagate/kinetic-java-tools
+     - Written in Java.
+     - Kinetic Java Tools are used to help the deployment and management of Kinetic drives.
+   - https://github.com/Seagate/kinetic-py-tools
+     - Written in Python.
+     - This project contains tools designed to help with deployment and management of Kinetic drives.
+   - https://github.com/Seagate/kinetic-pool-py
+     - A python library for managing connections against Kinetic devices.
+   - https://github.com/Seagate/kinetic-py-examples
+     - This project contains code examples using the Kinetic Python library.
+
+** Important links from the Seagate developer page
+   - https://developers.seagate.com/display/KV/Kinetic-Protocol+Architecture -
+     contains information on the PDU (Kinetic Protocol Data Unit)
+** C client implementations:
+   - https://github.com/Kinetic/kinetic-c
+     - contains code for producing Kinetic C clients for interacting
+       with Kinetic storage object-based storage.
+     - The library uses the cross-platform Seagate Kinetic protocol
+       for standardizing interaces between the Java simulator and
+       Kinetic Device storage clusters.
+
+* Day 1
+
+** From the demo video ([[https://vimeo.com/169727743][link to video]])
+   This video is a very basic introduction on how to run Scality's
+   S3 Server implementation using a GUI on Mac OS. Below is a summary
+   of the video.
+   - Slides
+     - This is a single instance running in a docker container
+     - Uses docker volumes for persistent storage
+     - Same code as Scality's RING S3 interface
+       - RING S3 is the cloud storage system at petabyte-scale
+   - Interaction with Scality's S3 server
+     - Giorgio shows how he uploaded a file to the server he is
+       running locally (demo) using cyberduck (GUI tool)
+     - Giorgio shows how he downloaded this file on the same server using
+       s3cmd (CLI tool) - first 'ls' then a 'get'
+** Install
+   Instructions at [[http://s3.scality.com/docs/getting-started][S3 - Getting Started]]
+  - Docker-toolbox, if you don't have it
+  - S3 download via Docker Hub (use Kitematic)
+  - Standard S3 tools (Store and retrieve files)
+    - Cyberduck
+      - An FTP client GUI to interact with the S3 server
+    - S3cmd (not included in the Getting Started)
+      - terminal version of GUI
+
+
+** Rona's resources
+
+1. [[https://web.archive.org/web/20160524135200/http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud][http://www.computerweekly.com/feature/Amazon-S3-storage-101-Object-storage-in-the-cloud]]
+2. https://www.reddit.com/r/explainlikeimfive/comments/4ifybx/eli5_object_vs_block_vs_file_storage/
+3. https://www.reddit.com/r/storage/comments/26qy4k/eli5_object_storage_please_educate_me/
+4. http://www.seagate.com/tech-insights/kinetic-vision-how-seagate-new-developer-tools-meets-the-needs-of-cloud-storage-platforms-master-ti/
+
+*** Takeaways
+   - 2nd link:
+     #+BEGIN_QUOTE
+     Objects are mostly defined in the context of
+     object-oriented programming.
+     #+END_QUOTE
+
+     #+BEGIN_QUOTE
+     Object storage: associate a *key* (typically an integer or a
+     string) with *data* (and optionally "*metadata*": attributes, access
+     rights, etc.)
+     #+END_QUOTE
+
+   - 3rd link:
+     #+BEGIN_QUOTE
+     The data and the data's metadata are stored separately.
+     #+END_QUOTE
+     #+BEGIN_QUOTE
+     This allows applications to address/retrieve the data as
+     programming objects, not as files on a disk. No LVM or filesystem
+     needed, so admining/scaling something this huge is simplified
+     greatly.
+     #+END_QUOTE
+     #+BEGIN_QUOTE
+     #+END_QUOTE
+   - 4th link:
+     Kind of flew right by me, it’s long and it’s got a lot of terms/acronyms whose meaning is not described.
+   - 1st link:
+     #+BEGIN_QUOTE
+     Outside of the bucket structure (which is there to
+     provide admin and security multi-tenancy), the operation of S3 is
+     a flat structure with no equivalent of the file structure
+     hierarchy seen with NFS- and CIFS/SMB-based storage.
+     #+END_QUOTE
+
+     In other words, there is no file hierarchy by default, everything
+     is “buckets” instead of folders, and no "sub-buckets” (as in
+     “subdirectories”). This being said, it is possible to implement
+     and enforce your own hierarchy if you code it into an object, so
+     theoretically you can have a file/folder structure built on top
+     of it, but the important thing is this is not there by default.
+
+     #+BEGIN_QUOTE
+     S3 is accessed using web-based protocols that use standard
+     HTTP(S) and a REST-based API.
+     #+END_QUOTE
+
+     No need for explanation on this one.
+
+     #+BEGIN_QUOTE
+     Amazon does not provide any technical details on how S3 is implemented, but we do have knowledge of some technical points that help us understand the way S3 operates.
+     #+END_QUOTE
+
+     Stark contrast to Scality, whose implementation we will be working with, which is open-source and hosted on github (https://github.com/scality/s3)
+
+** Resource by Asaia
+
+  Okay, the resource given by Asaia to us on Slack [[https://github.com/open-guides/og-aws#s3-basics][describes S3 further]]
+
+*** Takeaways (copied from [[https://github.com/open-guides/og-aws#s3-basics][the resource]])
+  - Items, or objects, are placed into named buckets stored with names
+    which are usually called keys. The main content is the value.
+  - S3 (Simple Storage Service) is AWS’ standard cloud storage
+    service, offering [...] storage of arbitrary [...] numbers of
+    files [sic (should really be objects)] of almost any size, from 0
+    to 5 TB. (Prior to 2011 the maximum size was 5 GB; larger sizes
+    are now well supported via multipart support.)
+  - Objects are created, deleted, or updated. Large objects can be
+    streamed, but you cannot access or modify parts of a value; you
+    need to update the whole object.
+  - S3 vs Glacier, EBS, and EFS: AWS offers many storage services, and
+    several besides S3 offer file-type abstractions. Glacier is for
+    cheaper and infrequently accessed archival storage. EBS, unlike
+    S3, allows random access to file contents via a traditional
+    filesystem, but can only be attached to one EC2 instance at a
+    time. EFS is a network filesystem many instances can connect to,
+    but at higher cost.
+
+** Amazon's storage tier products
+  1. Standard: General S3 capacity, used as the usual end point for
+     data added to S3.
+  2. Standard (Infrequent Access): A version of S3 capacity with lower
+     levels of availability than Standard for data that doesn’t need
+     to be highly available.
+  3. Glacier: Long-term archive storage.
+
+** Points to Investigate by Rona
+   - Link to file: [[file:points-to-inv.org][Rona's Points to Investigate]]
+* Day 2
+** Links from Slack
+   - [[https://developers.seagate.com/display/KV/Simple%2BObject%2BStorage][Rona's Simple Object Storage]]
+   - [[https://www.openkinetic.org/technology/kinetic-api][Daniel's Kinetic API]]
+* Day 3
+** Links from Slack
+   - [[http://blog.seagate.com/intelligent/scality-and-seagate-hackathon-challenge-developers-to-extend-s3-server-capabilities-using-kinetic-protocol/][S3 Hackathon Page Update - more info about Kinetic]]
+     - Rona discovered this one, and Electra later mentioned this one to us.
+   - [[https://github.com/Kinetic/kinetic-java][Kinetic Java Simulator Repo]] - added by Josquin
+* Day 4
+  The python Kinetic client for fails a few tests related to P2P using
+  the Java simulator's most recent version at the time of this
+  writing.
+  
+  Here is the Python client log after running =python test=
+  command ([[file:log/log-kinetic-py-p2p-2-fails.org][link]])
+
+** Investigation Outline
+   There are two things I'm investigating in parallel at the moment.
+   1. Scality's S3 Javascript code
+      - nothing here yet
+   2. Seagate's Kinetic Library
+      - I'm currently finding the source code in this file useful to
+        my understanding - [[https://github.com/Seagate/kinetic-java-tools/blob/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src/main/java/com/seagate/kinetic/tools/management/cli/KineticToolCLI.java][link to file]]. This links to the first commit of the
+        file KineticToolCLI.java in the [[https://github.com/Seagate/kinetic-java-tools][kinetic-java-tools]]
+        repository. Specifically, the source code for the Kinetic
+        tools can all be found in this [[https://github.com/Seagate/kinetic-java-tools/tree/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src][directory]] (this link sends you to the very
+        first commit version of this directory.)

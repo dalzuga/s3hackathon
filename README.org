@@ -12,13 +12,13 @@
   
   Disclaimer: these directions are for Ubuntu (I’m on 16.04.)
 
-## Cloning the branch:
+** Cloning the branch:
 
   #+BEGIN_EXAMPLE
   git clone -b dev/ft/KineticBackendClass git@github.com:scality/S3.git
   #+END_EXAMPLE
   
-## Fixing a mistake:
+** Fixing a mistake:
   In package.json, find line 31 that says
 
   #+BEGIN_EXAMPLE
@@ -31,7 +31,7 @@
   "kinetic": "scality/kineticlib”,
   #+END_EXAMPLE
   
-## Installing =nvm=:
+** Installing =nvm=:
 
   Antonin recommended to install =nvm=, which is a node version
   package manager that allows you to select the node version to
@@ -64,7 +64,7 @@
 
   to use the latest node (of version 4), as directed by Antonin.
 
-## Running and configuring S3Server and s3blaster:
+** Running and configuring S3Server and s3blaster:
 
   Then we set env vars =S3SPROXYD= and =S3CONFIG= by doing:
 
@@ -93,4 +93,3 @@
   from the =s3blaster/= directory.
 
   The last thing we did was look at S3/lib/data/kinetic/Kinetic.js to see how it worked.
-

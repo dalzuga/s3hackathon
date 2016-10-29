@@ -1,3 +1,16 @@
+* Description
+  We, the Boba Team, used this file to gather notes and resources in
+  preparation for the S3 Server Hackathon with Scality and Seagate,
+  hosted at Holberton School.
+
+  Below you can find the source code map we made to break down the
+  source code of the S3 server [[https://github.com/TeamBoba/S3][(link to our fork)]]; a compilation of
+  the resources we used; and a summary of what we covered for each day
+  of preparation leading to the hackathon on October 21st, 2016.
+
+  We, members of the Boba Team -- Daniel Alzugaray, Electra Chong,
+  Rona Chong (and unofficial team member Josquin Gaillard) --
+
 * Source-code Map
 
   [[/images/S3-Diagram.png]]
@@ -39,7 +52,6 @@
      - The library uses the cross-platform Seagate Kinetic protocol
        for standardizing interaces between the Java simulator and
        Kinetic Device storage clusters.
-
 * Day 1
 
 ** From the demo video ([[https://vimeo.com/169727743][link to video]])

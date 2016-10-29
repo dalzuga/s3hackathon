@@ -9,7 +9,10 @@
   of preparation leading to the hackathon on October 21st, 2016.
 
   We, members of the Boba Team -- Daniel Alzugaray, Electra Chong,
-  Rona Chong (and unofficial team member Josquin Gaillard) --
+  Rona Chong (and unofficial team member Josquin Gaillard) -- [not
+  sure what Daniel had in mind to write here]
+
+
 
 * Source-code Map
 
@@ -202,3 +205,7 @@
         repository. Specifically, the source code for the Kinetic
         tools can all be found in this [[https://github.com/Seagate/kinetic-java-tools/tree/179efca4561a39f7263073cc3d6f91777de38a6d/kinetic-tools/src][directory]] (this link sends you to the very
         first commit version of this directory.)
+* Day 6
+** Proposed items for development
+   Rona outlined a development trajectory for our team, which can be
+   found in [[https://github.com/dalzuga/s3hackathon/blob/master/DEVELOPMENT.org][DEVELOPMENT.org]].
